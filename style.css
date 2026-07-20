@@ -1209,4 +1209,103 @@ input:focus {
   margin-bottom: 20px;
 }
 
+/* TIMETABLE SPECIFIC STYLES */
+.timetable-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+.timetable-container::-webkit-scrollbar {
+  height: 8px;
+}
+.timetable-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.timetable-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.timetable-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
+.schedule-table, .subjects-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+}
+
+.schedule-table th, .schedule-table td,
+.subjects-table th, .subjects-table td {
+  border: 1px solid #dbe2e8;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 10px;
+}
+
+.schedule-table td,
+.subjects-table td {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c2b59;
+}
+
+/* Schedule Table */
+.period-row th {
+  background-color: #ffffff;
+  color: #1a2a4b;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 10px;
+}
+.period-row .empty-header {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+.time-row th, .day-col {
+  background-color: #2b3e54;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 14px 10px;
+}
+
+.schedule-table tbody td {
+  background: linear-gradient(135deg, #ccf3fa 0%, #e0f9fb 100%);
+  line-height: 1.4;
+}
+/* Ensure empty cells also have the gradient background as seen in the image */
+.schedule-table tbody td:empty {
+  background: linear-gradient(135deg, #ccf3fa 0%, #e0f9fb 100%);
+}
+
+/* Subjects Table */
+.subjects-table th {
+  background-color: #2b3e54;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px 12px;
+}
+.subjects-table tbody tr {
+  background-color: #ffffff;
+}
+.subjects-table tbody td {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sub-code {
+  font-weight: 700;
+}
+.sub-desc {
+  text-align: left !important;
+  text-transform: uppercase;
+  padding-left: 10px !important;
+}
+.sub-center {
+  text-align: center;
+}
