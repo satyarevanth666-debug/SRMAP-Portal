@@ -149,7 +149,15 @@ document.querySelectorAll('a[data-page]').forEach(link => {
       }
       
       // Scroll to the very top of the page when navigating
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      if (mainContent) mainContent.scrollTop = 0;
+      
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+      }, 50);
       
       // Close sidebar on mobile after clicking
       if (window.innerWidth < 768) {
