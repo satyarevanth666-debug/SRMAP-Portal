@@ -714,6 +714,9 @@ input:focus {
   flex: 1;
   font-weight: 800;
   color: inherit;
+  white-space: normal;
+  line-height: 1.3;
+  text-align: left;
 }
 
 .sidebar-nav > ul > li {
@@ -752,20 +755,23 @@ input:focus {
   max-height: 0;
   overflow: hidden;
   background: transparent;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .sidebar-nav > ul > li.open > .submenu {
-  max-height: 360px;
+  max-height: 1500px;
 }
 
 .submenu li a {
   display: block;
   padding: 10px 22px 10px 52px;
   font-size: 13px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.72);
   transition: all var(--trans);
   background: transparent;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .submenu li a:hover {
