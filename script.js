@@ -1,4 +1,4 @@
-﻿const form = document.querySelector('.login-form');
+const form = document.querySelector('.login-form');
 const applicationNumberInput = document.getElementById('applicationNumber');
 const passwordInput = document.getElementById('password');
 const captchaInput = document.getElementById('captchaInput');
@@ -123,3 +123,54 @@ const uaCell = document.getElementById('uaCell');
 if (uaCell) {
   uaCell.textContent = navigator.userAgent;
 }
+
+// Router Logic
+const mainContent = document.querySelector('.main');
+const defaultMainHTML = mainContent ? mainContent.innerHTML : '';
+
+document.querySelectorAll('a[data-page]').forEach(link => {
+  link.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const pageName = link.getAttribute('data-page');
+    if (!pageName) return;
+
+    try {
+      // Dynamically import the JS module for the page
+      const module = await import(`./js/pages/${pageName}.js`);
+      
+      // Call render() to get the HTML string
+      if (module.render && mainContent) {
+        mainContent.innerHTML = module.render();
+      }
+      
+      // Close sidebar on mobile after clicking
+      if (window.innerWidth < 768) {
+        sidebar.classList.remove('open');
+        backdrop.classList.remove('show');
+      }
+    } catch (err) {
+      console.error(`Failed to load page: ${pageName}`, err);
+      if (mainContent) {
+        mainContent.innerHTML = `
+          <div style="padding:20px; color:red;">
+            <h2>Error 404</h2>
+            <p>Page module not found or failed to load.</p>
+          </div>
+        `;
+      }
+    }
+  });
+});
+
+// For Profile / Home linking
+const profileLinks = document.querySelectorAll('a[title="Profile"], a[href="/"]');
+profileLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (mainContent) {
+      mainContent.innerHTML = defaultMainHTML;
+      const newUaCell = document.getElementById('uaCell');
+      if (newUaCell) newUaCell.textContent = navigator.userAgent;
+    }
+  });
+});
