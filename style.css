@@ -1470,3 +1470,198 @@ input:focus {
   display: inline-block;
   width: 70px;
 }
+
+/* Standard Page Components (Hostel, Finance, Course Registration) */
+
+/* Note Alert */
+.note-alert {
+  background-color: #f7fbff;
+  border: 1px solid #c9e1f8;
+  color: #5a738f;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.note-alert strong,
+.note-alert b {
+  font-weight: 700;
+}
+
+/* Light Blue Header */
+.section-light-blue-header {
+  background: linear-gradient(180deg, #d8eff6 0%, #ccecf5 100%);
+  color: #3f7b99;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 16px 18px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom: 1px solid #bde2ed;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+/* Page Card Container */
+.page-card {
+  background: #ffffff;
+  border: 1px solid #dbe2e8;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.page-card-body {
+  padding: 24px;
+}
+
+/* Success Text */
+.success-title {
+  color: #0d9488;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Form Group Grid for display */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.detail-label {
+  color: #0f766e;
+  font-size: 16px;
+  font-weight: 400;
+}
+.detail-value {
+  color: #1a2a4b;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Print Button */
+.btn-print {
+  background-color: #38bdf8;
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 15px 0;
+  transition: background-color 0.2s;
+}
+.btn-print:hover {
+  background-color: #0284c7;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: #eaedf2;
+  margin: 15px 0;
+}
+.divider-green {
+  height: 1px;
+  background-color: #a7f3d0;
+  margin: 25px 0 15px 0;
+}
+
+/* Generic Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+  font-size: 13px;
+  margin-bottom: 20px;
+  table-layout: auto;
+}
+.data-table th, .data-table td {
+  border: 1px solid #dbe2e8;
+  padding: 12px 14px;
+  vertical-align: middle;
+}
+.data-table thead th {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Green Header Table (Hostel) */
+.table-green-header thead th {
+  background-color: #ffffff;
+  color: #065f46;
+  border-bottom: 2px solid #a7f3d0;
+  text-align: left;
+}
+.table-green-header tbody td {
+  color: #1e3a8a;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Dark Gray Header Table (Course Registration) */
+.table-dark-header thead th.dark-row {
+  background-color: #52525b;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  padding: 14px;
+}
+.table-dark-header thead th.light-green-row {
+  background-color: #f0fdf4;
+  color: #166534;
+  font-size: 12px;
+  font-weight: 600;
+}
+.table-dark-header tbody td {
+  color: #475569;
+  font-size: 12px;
+  padding: 10px 14px;
+}
+.table-dark-header tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Blue Header Table (Finance) */
+.table-blue-header thead th {
+  background-color: #ffffff;
+  color: #1e3a8a;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+.table-blue-header tbody td {
+  color: #1e3a8a;
+  font-size: 12px;
+  padding: 12px 14px;
+  line-height: 1.5;
+}
+.table-blue-header tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Finance Titles */
+.finance-title {
+  color: #1e3a8a;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+.finance-title:first-child {
+  margin-top: 0;
+}
+.finance-note {
+  font-size: 12px;
+  color: #1e3a8a;
+  margin-top: -5px;
+  margin-bottom: 15px;
+}

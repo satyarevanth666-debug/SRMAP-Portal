@@ -1,28 +1,32 @@
 export function render() {
     return `
-        <h1 class="page-title">FEE DUE DETAILS</h1>
-        ${String.raw`
-        <div class="data-table-container">
-            <table class="data-table">
+        <h3 class="finance-title">DUES</h3>
+        
+        <div style="overflow-x: auto; background: #fff; border: 1px solid #dbe2e8; border-radius: 4px; margin-bottom: 25px;">
+            <table class="data-table table-blue-header" style="margin-bottom: 0;">
                 <thead>
                     <tr>
-                        <th>Transaction ID</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Status</th>
+                        <th style="text-align: center; border-bottom: 1px solid #dbe2e8;">Sl.No.</th>
+                        <th style="text-align: center; border-bottom: 1px solid #dbe2e8; border-left: 1px solid #dbe2e8;">Fee Category</th>
+                        <th style="text-align: center; border-bottom: 1px solid #dbe2e8; border-left: 1px solid #dbe2e8;">Fee Head</th>
+                        <th style="text-align: center; border-bottom: 1px solid #dbe2e8; border-left: 1px solid #dbe2e8;">Due Amount (INR)</th>
+                        <th style="text-align: center; border-bottom: 1px solid #dbe2e8; border-left: 1px solid #dbe2e8;">Collected (INR)</th>
+                        <th style="text-align: center; border-bottom: 1px solid #dbe2e8; border-left: 1px solid #dbe2e8;">To be Paid Amount (INR)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>TXN-902384</td><td>Aug 15, 2025</td><td>Tuition Fee - Sem 3</td><td>₹ 1,25,000</td><td><span class="badge success">Paid</span></td></tr>
-                    <tr><td>TXN-902385</td><td>Aug 15, 2025</td><td>Hostel Fee</td><td>₹ 50,000</td><td><span class="badge success">Paid</span></td></tr>
-                    <tr><td>TXN-109283</td><td>Jan 10, 2026</td><td>Tuition Fee - Sem 4</td><td>₹ 1,25,000</td><td><span class="badge danger">Due</span></td></tr>
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: #a9b7cd; padding: 16px;">No fee dues</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
-        <div style="margin-top:20px;">
-            <button class="btn-primary">Pay Due Amount</button>
+
+        <h3 class="finance-title">SELECT FEE CATEGORY TO PAY</h3>
+        <p class="finance-note">Note : You will be allowed to make the Tuition Fees payment once the other old dues are cleared</p>
+
+        <div class="note-alert" style="margin-top: 30px;">
+            <strong>Note:</strong>To verify the current status of your online Payment Gateway transaction, where the status was not updated and amount was deducted from you bank account, please go through the navigation : <strong>Student Portal>>Finance>>Online Payment Verification</strong> to verify the current status. If there will be a change, the status gets updated accordingly
         </div>
-        `}
     `;
 }

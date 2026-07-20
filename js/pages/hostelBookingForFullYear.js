@@ -1,19 +1,20 @@
 export function render() {
     return `
-        <h1 class="page-title">HOSTEL BOOKING FOR FULL YEAR</h1>
-        ${String.raw`
-        <div class="info-card">
-            <h3>Information Regarding HOSTEL BOOKING FOR FULL YEAR</h3>
-            <p>This module provides relevant information and policies regarding HOSTEL BOOKING FOR FULL YEAR. Currently, there are no pending actions required from your side.</p>
+        <div class="note-alert">
+            <strong>Note:</strong> Students will be allowed to register for one facility only- either Hostel or Transport, hence, please select carefully.
         </div>
-        <div class="info-card" style="border-left-color: #f59e0b;">
-            <h3>Recent Updates</h3>
-            <ul>
-                <li>Guidelines updated for the current academic year.</li>
-                <li>Ensure all pending documents are submitted to the respective department.</li>
-                <li>Contact helpdesk for further clarification.</li>
-            </ul>
+        
+        <div class="page-card">
+            <h2 class="section-light-blue-header">HOSTEL REGISTRATION 2026</h2>
+            <div class="page-card-body">
+                <h3 class="success-title">Hostel registration completed</h3>
+                <div class="divider-green" style="margin-top: 10px; margin-bottom: 20px;"></div>
+                
+                <div class="detail-grid">
+                    <div class="detail-label">Room Type</div>
+                    <div class="detail-value" style="color: #0f766e;">6 Sharing Bunker AC</div>
+                </div>
+            </div>
         </div>
-        `}
     `;
 }
