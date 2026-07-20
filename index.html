@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SRM AP Student's Corner | Profile</title>
+    <meta
+      name="description"
+      content="Student login portal for accessing academic records, courses, timetable and results."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-+D0A9I9M5e+zGvQ2b8gqtX+tQ3g6r7wYh6gYV1+8c0yZ/Kz6Gg3pJYaAa7kTQl6Q9zCoYTx7SDk8i+V5cNcfwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell" id="loginPage">
+      <header class="site-header" aria-label="Site header">
+        <a class="brand" href="#" aria-label="SRM University AP home">
+          <img src="images/logo.jpg" alt="SRM University AP, Andhra Pradesh" class="brand-logo" />
+        </a>
+      </header>
+
+      <main class="main-content" id="main-content">
+        <div class="left-column">
+          <section class="welcome-panel" aria-labelledby="welcome-title">
+            <h1 id="welcome-title">Welcome to SRM University, AP – Andhra Pradesh</h1>
+            <h2>Freshers</h2>
+            <p>The Portal will help you to –</p>
+            <ul>
+              <li>Login with your Application number and your Date of Birth will be the password in DDMMYYYY format.</li>
+              <li>Choose the courses that you wish to study</li>
+              <li>Complete the payment</li>
+              <li>Download the Provisional Admission Letter.</li>
+              <li>Complete your enrollment</li>
+            </ul>
+
+            <h2>Senior Students</h2>
+            <p>Please login with your Registration Number and password to –</p>
+            <ul>
+              <li>Register for semester courses</li>
+              <li>View Class timetable, etc</li>
+              <li>Pay your fee – tuition, etc</li>
+              <li>View attendance, results etc</li>
+            </ul>
+
+            <p class="support-copy">
+              For any technical support email to
+              <a href="mailto: itkm.helpdesk@srmap.edu.in"> itkm.helpdesk@srmap.edu.in</a>
+            </p>
+          </section>
+
+          <footer class="site-footer">
+            <p>
+              Developed by: ITKM Department, SRM University AP, Andhra Pradesh |
+              <a href="https://www.srmap.edu.in/" target="_blank" rel="noreferrer">www.srmap.edu.in</a>
+            </p>
+          </footer>
+        </div>
+
+        <section class="login-card" aria-labelledby="login-title">
+          <div class="card-header" id="login-title">Portal for Freshers and Senior Students</div>
+          <form class="login-form" novalidate>
+            <div class="field-group">
+              <label for="applicationNumber">Application Number / Register Number</label>
+              <input id="applicationNumber" name="applicationNumber" type="text" placeholder="Enter Application Number / Register Number" />
+            </div>
+
+            <div class="field-group">
+              <label for="password">Password</label>
+              <div class="password-field">
+                <input id="password" name="password" type="password" placeholder="Password" />
+                <button class="password-toggle" type="button" aria-label="Show password">
+                  <span class="eye-icon" aria-hidden="true">👁</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="field-group captcha-group">
+              <div id="captchaDisplay" class="captcha-display" role="button" tabindex="0" aria-label="Refresh captcha"></div>
+              <input id="captchaInput" name="captcha" type="text" placeholder="Enter Captcha Text" />
+            </div>
+
+            <div id="formMessage" class="form-message" aria-live="polite"></div>
+
+            <div class="login-instructions">
+              If you are a Student and this is your first login, you must use your Register Number / Application Number as your User ID, with your date of birth [Format ddmmyyyy E.g. 03121990] as your password.
+            </div>
+
+            <button class="login-button" type="submit">Login</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <section class="dashboard-shell hidden" id="dashboardPage" aria-labelledby="dashboard-heading">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="menuToggle" class="hamburger" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+        <div class="topbar-right">
+          <div class="user-chip" id="userChip" aria-haspopup="true" aria-expanded="false">
+            <img src="images/user-avatar.jpg" alt="User" class="user-avatar-sm" />
+            <span class="user-name">NALAMATI SATYA REVANTH</span>
+            <i class="fa-solid fa-chevron-down"></i>
+            <div class="user-menu" id="userMenu">
+              <a href="#"><i class="fa-solid fa-user"></i> My Profile</a>
+              <a href="#"><i class="fa-solid fa-key"></i> Change Password</a>
+              <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-user">
+          <img src="images/user-avatar.jpg" alt="Student" />
+          <div class="sidebar-welcome">
+            <span>Welcome,</span>
+            <strong>NALAMATI SATYA REVANTH</strong>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-books"></i></span><span>Academic</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">Student Wise Subjects</a></li><li><a href="#">Timetable</a></li><li><a href="#">Attendance Details</a></li><li><a href="#">OD/ML Details</a></li><li><a href="#">Student Attendance</a></li><li><a href="#">Course Registration</a></li></ul>
+            </li>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-calendar-days"></i></span><span>Events</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">Event Attendance</a></li></ul>
+            </li>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>SAP</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">SAP Process</a></li><li><a href="#">Withdraw</a></li><li><a href="#">Details</a></li><li><a href="#">Attachments</a></li><li><a href="#">Feedback</a></li></ul>
+            </li>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-money-bill-transfer"></i></span><span>Finance</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">Fee Paide Details</a></li><li><a href="#">Fee Due Details</a></li><li><a href="#">Online Payment Verification</a></li><li><a href="#">Payment Acknowledgment</a></li><li><a href="#">Bank Account Details</a></li></ul>
+            </li>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-file-lines"></i></span><span>Examination</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">Internal Marks</a></li><li><a href="#">Earlier Internal Marks</a></li><li><a href="#">Current Semester Results</a></li><li><a href="#">Exam Mark Details</a></li><li><a href="#">Exam Registartion</a></li><li><a href="#">Exam Registration Details</a></li><li><a href="#">Degree Photo Upload</a></li></ul>
+            </li>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-bed"></i></span><span>Hostel</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">Hostel Booking for Full Year</a></li><li><a href="#">Room Deatils</a></li><li><a href="#">Hostel Refund Policy</a></li><li><a href="#">Hostel Rules and Regulations</a></li></ul>
+            </li>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-bus"></i></span><span>Transport</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">Transport Registration</a></li><li><a href="#">Registration Acknowledgment</a></li><li><a href="#">Transport Refund Policy</a></li></ul>
+            </li>
+            <li class="has-sub"><button aria-expanded="false"><span class="nav-icon"><i class="fa-solid fa-comment-dots"></i></span><span>Feedback</span><span class="nav-arrow caret">▾</span></button>
+              <ul class="submenu"><li><a href="#">End Semester Feedback</a></li></ul>
+            </li>
+            <li><a href="#"><span class="nav-icon"><i class="fa-solid fa-bullhorn"></i></span><span>Announcements</span><span class="nav-arrow">▾</span></a></li>
+            <li><a href="#"><span class="nav-icon"><i class="fa-solid fa-shield-check"></i></span><span>Verification</span><span class="nav-arrow">▾</span></a></li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <a href="#" title="Profile"><i class="fa-solid fa-user"></i></a>
+          <a href="#" title="Settings"><i class="fa-solid fa-gear"></i></a>
+          <a href="#" title="Logout"><i class="fa-solid fa-power-off"></i></a>
+        </div>
+      </aside>
+      <div class="sidebar-backdrop" id="backdrop"></div>
+      <main class="main">
+        <h1 class="page-title">PROFILE</h1>
+        <div class="profile-card">
+          <table class="profile-table">
+            <tbody>
+              <tr><td class="lbl">Student Name</td><td class="sep">:</td><td class="val strong">NALAMATI SATYA REVANTH</td></tr>
+              <tr><td class="lbl">Register No.</td><td class="sep">:</td><td class="val strong">AP25110010642</td></tr>
+              <tr><td class="lbl">Institution</td><td class="sep">:</td><td class="val strong">School of Engineering and Sciences (College)</td></tr>
+              <tr><td class="lbl">Semester</td><td class="sep">:</td><td class="val strong">III SEMESTER</td></tr>
+              <tr><td class="lbl">Program / Section</td><td class="sep">:</td><td class="val strong">B.Tech.-Computer Science and Engineering [UG - Full Time] / '-'</td></tr>
+              <tr><td class="lbl">Specialization</td><td class="sep">:</td><td class="val"></td></tr>
+              <tr><td class="lbl">D.O.B. / Gender</td><td class="sep">:</td><td class="val strong">19-Jun-2008 / Male</td></tr>
+              <tr><td class="lbl">Student Contact Number / Email</td><td class="sep">:</td><td class="val strong">9878972826 <span class="verified">(Verified)</span> / student@example.com</td></tr>
+              <tr><td class="lbl">Father Name / Mother Name</td><td class="sep">:</td><td class="val strong">NALAMATI RAMARAO / NALAMATI LAVANYA</td></tr>
+              <tr><td class="lbl">Access Through</td><td class="sep">:</td><td class="val strong ua" id="uaCell"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="page-footer">SRM-AP Andhra Pradesh Student's Corner</footer>
+      </main>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

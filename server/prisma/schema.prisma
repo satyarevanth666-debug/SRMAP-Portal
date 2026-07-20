@@ -1,0 +1,232 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Subject {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  name      String
+  credits   Int
+  createdAt DateTime @default(now())
+  timetableEntries TimetableEntry[]
+  attendances Attendance[]
+  courseRegistrations CourseRegistration[]
+}
+
+model TimetableEntry {
+  id        Int      @id @default(autoincrement())
+  subject   Subject? @relation(fields: [subjectId], references: [id])
+  subjectId Int?
+  day       String
+  startTime String
+  endTime   String
+}
+
+model Attendance {
+  id         Int      @id @default(autoincrement())
+  subject    Subject  @relation(fields: [subjectId], references: [id])
+  subjectId  Int
+  date       DateTime
+  present    Boolean
+  percentage Float?
+}
+
+model OdMlRequest {
+  id         Int      @id @default(autoincrement())
+  studentId  String
+  type       String
+  reason     String
+  status     String   @default("pending")
+  createdAt  DateTime @default(now())
+}
+
+model CourseRegistration {
+  id         Int      @id @default(autoincrement())
+  studentId  String
+  subject    Subject  @relation(fields: [subjectId], references: [id])
+  subjectId  Int
+  semester   String
+  createdAt  DateTime @default(now())
+}
+
+// Additional models - minimal fields for scaffolding
+model Event {
+  id    Int @id @default(autoincrement())
+  title String
+  date  DateTime
+  attendees EventAttendance[]
+}
+
+model EventAttendance {
+  id      Int @id @default(autoincrement())
+  event    Event @relation(fields: [eventId], references: [id])
+  eventId Int
+  student String
+}
+
+model SapRecord {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  type      String
+  reason    String?
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  attachments SapAttachment[]
+}
+
+model SapAttachment {
+  id         Int      @id @default(autoincrement())
+  sapRecord  SapRecord @relation(fields: [sapRecordId], references: [id])
+  sapRecordId Int
+  filename   String
+  url        String?
+  uploadedAt DateTime @default(now())
+}
+
+model SapFeedback {
+  id        Int @id @default(autoincrement())
+  studentId String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Fee {
+  id        Int    @id @default(autoincrement())
+  code      String @unique
+  title     String
+  amount    Float
+  dueDate   DateTime?
+}
+
+model Payment {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  amount    Float
+  method    String?
+  reference String?
+  createdAt DateTime @default(now())
+}
+
+model FinanceTransaction {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  type      String
+  amount    Float?
+  metadata  String?
+  createdAt DateTime @default(now())
+}
+
+// Examination
+model Exam {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  title     String
+  date      DateTime?
+}
+
+model Result {
+  id        Int      @id @default(autoincrement())
+  examId    Int
+  studentId String
+  grade     String
+  marks     Float?
+  createdAt DateTime @default(now())
+}
+
+// Hostel
+model Hostel {
+  id      Int    @id @default(autoincrement())
+  name    String
+  address String?
+  rooms   Room[]
+}
+
+model Room {
+  id        Int    @id @default(autoincrement())
+  hostel    Hostel @relation(fields: [hostelId], references: [id])
+  hostelId  Int
+  number    String
+  capacity  Int
+}
+
+model Allocation {
+  id        Int      @id @default(autoincrement())
+  roomId    Int
+  studentId String
+  fromDate  DateTime?
+  toDate    DateTime?
+}
+
+model Complaint {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  subject   String
+  message   String
+  status    String   @default("open")
+  createdAt DateTime @default(now())
+}
+
+// Transport
+model TransportRoute {
+  id    Int    @id @default(autoincrement())
+  name  String
+  desc  String?
+  stops Stop[]
+}
+
+model Stop {
+  id      Int    @id @default(autoincrement())
+  route    TransportRoute @relation(fields: [routeId], references: [id])
+  routeId Int
+  name    String
+  seq     Int
+}
+
+model PassRequest {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  routeId   Int
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+}
+
+// Feedback & Announcements
+model FeedbackTicket {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  subject   String
+  message   String
+  status    String   @default("open")
+  createdAt DateTime @default(now())
+}
+
+model Announcement {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  pinned    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// Verification
+model VerificationRequest {
+  id        Int      @id @default(autoincrement())
+  studentId String
+  vtype     String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  attachments VerificationAttachment[]
+}
+
+model VerificationAttachment {
+  id                    Int                 @id @default(autoincrement())
+  verificationRequest   VerificationRequest @relation(fields: [verificationRequestId], references: [id])
+  verificationRequestId Int
+  filename              String
+  url                   String?
+}
