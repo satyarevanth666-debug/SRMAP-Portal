@@ -143,6 +143,11 @@ document.querySelectorAll('a[data-page]').forEach(link => {
         mainContent.innerHTML = module.render();
       }
       
+      // Initialize module specific logic if available
+      if (module.init) {
+        module.init();
+      }
+      
       // Close sidebar on mobile after clicking
       if (window.innerWidth < 768) {
         sidebar.classList.remove('open');

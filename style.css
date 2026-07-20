@@ -1355,6 +1355,53 @@ input:focus {
   }
 }
 
+/* Force overrides via JS toggle */
+.force-grid .desktop-timetable {
+  display: block !important;
+}
+.force-grid .mobile-timetable {
+  display: none !important;
+}
+.force-cards .desktop-timetable {
+  display: none !important;
+}
+.force-cards .mobile-timetable {
+  display: block !important;
+}
+
+/* Toggle Header */
+.timetable-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.timetable-header-container .page-title {
+  margin-bottom: 0;
+}
+.layout-toggle {
+  display: flex;
+  background: #eef2f6;
+  border-radius: 6px;
+  padding: 4px;
+}
+.toggle-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #5a738f;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.toggle-btn.active {
+  background: #ffffff;
+  color: #1a2a4b;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
 /* Mobile Timetable Styles */
 .mobile-section-title {
   font-size: 18px;
