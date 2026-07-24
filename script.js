@@ -82,6 +82,45 @@ form.addEventListener('submit', (event) => {
   openDashboard();
 });
 
+const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+if (forgotPasswordBtn) {
+  forgotPasswordBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    const applicationNumber = applicationNumberInput.value.trim();
+    const captcha = captchaInput.value.trim().toUpperCase();
+
+    if (!applicationNumber) {
+      showMessage('Please enter Application Number / Register Number for Forgot Password.');
+      return;
+    }
+
+    if (captcha !== currentCaptcha) {
+      showMessage('Invalid captcha. Please try again.');
+      captchaInput.value = '';
+      setCaptcha();
+      return;
+    }
+
+    const profileRows = document.querySelectorAll('.profile-table tr');
+    let mobileNumber = 'your registered mobile number';
+    
+    profileRows.forEach(row => {
+      if (row.textContent.includes('Student Contact Number')) {
+        const valCell = row.querySelector('.val');
+        if (valCell) {
+          const numberMatch = valCell.textContent.match(/\d{10}/);
+          if (numberMatch) {
+            mobileNumber = numberMatch[0];
+          }
+        }
+      }
+    });
+    
+    alert(`An OTP has been sent to ${mobileNumber}`);
+  });
+}
+
 const sidebar = document.getElementById('sidebar');
 const backdrop = document.getElementById('backdrop');
 const menuToggle = document.getElementById('menuToggle');
