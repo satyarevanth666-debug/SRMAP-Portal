@@ -232,9 +232,10 @@
     </aside>
     <div class="sidebar-backdrop" id="backdrop"></div>
     <main class="main">
-      <h1 class="page-title">PROFILE</h1>
-      <div class="profile-card">
-        <table class="profile-table">
+      <div id="profile-view">
+        <h1 class="page-title">PROFILE</h1>
+        <div class="profile-card">
+          <table class="profile-table">
           <tbody>
             <tr>
               <td class="lbl">Student Name</td>
@@ -289,6 +290,31 @@
           </tbody>
         </table>
       </div>
+      </div>
+      
+      <div id="timetable-view" class="hidden">
+        <h1 class="page-title">TIME TABLE</h1>
+        
+        <div class="timetable-grid-container" id="timetable-grid-container">
+          <!-- Timetable schedule grid injected by JS -->
+        </div>
+        
+        <div class="timetable-subjects-container" id="timetable-subjects-container">
+           <!-- Subjects grid injected by JS -->
+        </div>
+      </div>
+      
+      <div id="dynamic-content-view" class="hidden">
+        <h1 class="page-title" id="dynamic-page-title">Loading...</h1>
+        <div id="dynamic-loading-spinner" class="hidden" style="text-align: center; margin-top: 40px;">
+          <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: #354a5f;"></i>
+          <p style="margin-top: 15px; color: #1a237e; font-weight: 600;">Fetching data from portal...</p>
+        </div>
+        <div id="dynamic-tables-container">
+           <!-- Generic tables injected by JS -->
+        </div>
+      </div>
+      
       <footer class="page-footer">SRM-AP Andhra Pradesh Student's Corner</footer>
     </main>
   </section>
