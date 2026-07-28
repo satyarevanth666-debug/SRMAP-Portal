@@ -90,7 +90,7 @@ form.addEventListener('submit', async (event) => {
     submitButton.disabled = true;
     showMessage('Solving captcha and fetching your data from the real portal...');
 
-    const response = await fetch('http://localhost:3000/api/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ applicationNumber, password })
@@ -290,7 +290,7 @@ document.querySelectorAll('a[data-page]').forEach(link => {
         throw new Error('No active session found. Please login again.');
       }
       
-      const response = await fetch('http://localhost:3000/api/scrape', {
+      const response = await fetch('/api/scrape', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId: window.sessionId, pageName: pageName })
