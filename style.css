@@ -475,6 +475,12 @@ input:focus {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-blue);
+  color: #fff;
+  font-size: 14px;
 }
 
 .user-name {
@@ -593,13 +599,23 @@ input:focus {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sidebar-user img {
+.sidebar-user img,
+.sidebar-avatar {
   width: 88px;
   height: 88px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.sidebar-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 36px;
 }
 
 .sidebar-welcome {
